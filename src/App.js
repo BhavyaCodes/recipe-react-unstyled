@@ -2,11 +2,13 @@ import "./App.css";
 import Landing from "./components/Landing";
 import Recipe from "./components/Recipe.jsx";
 import Categories from "./components/Categories";
+import SearchBar from "./components/SearchBar";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
+      <SearchBar />
       <Switch>
         <Route path="/" exact>
           <Landing />
