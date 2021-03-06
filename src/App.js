@@ -3,6 +3,7 @@ import Landing from "./components/Landing";
 import Recipe from "./components/Recipe.jsx";
 import Categories from "./components/Categories";
 import SearchBar from "./components/SearchBar";
+import Search from "./components/Search";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/recipe/:id">
           <Recipe />
+        </Route>
+        <Route path="/search/:query">
+          <Search />
         </Route>
         <Route>
           <h1>404</h1>
