@@ -1,10 +1,14 @@
 import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 function SearchBar() {
+  const history = useHistory();
   const inputRef = useRef();
 
   const handleSubmit = (e) => {
-    console.log(inputRef.current.value);
+    const query = inputRef.current.value;
+    e.preventDefault();
+    history.push(`/search/${query}`);
   };
 
   return (
