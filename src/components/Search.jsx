@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 function Search() {
   const [result, setResult] = useState(null);
   const params = useParams();
-  console.log(params);
+  const history = useHistory();
 
   useEffect(() => {
     const getData = async () => {
@@ -17,10 +17,19 @@ function Search() {
     getData();
   }, [params]);
 
+  const handleClick = (id) => {
+    history.push(`/recipe/${id}`);
+  };
+
   const renderMeals = () => {
     return result.map((recipe) => {
       return (
-        <div key={recipe.idMeal}>
+        <div
+          key={recipe.idMeal}
+          onClick={() => {
+            handleClick(recipe.idMeal);
+          }}
+        >
           <h1>{recipe.strMeal}</h1>
           <img src={recipe.strMealThumb} alt={recipe.strMeal} />
         </div>
